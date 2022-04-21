@@ -3,25 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>Flask Parent Template</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+body {
+  background-image: url('../static/images/backround.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1 class="logo">First Web App</h1>
-        <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
+
+
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+
+          <a class="navbar-brand" href="/">Easy Minecraft Modloader</a>
+        </div>
+
+          <ul class="nav navbar-nav">
+
+
+            {% for Mod in ModVersions %}
+                     <li><a  href="{{ url_for('versions') }}?version={{Mod}} ">{{Mod}}</a></li>
+
+            {% endfor %}
+
           </ul>
-        </nav></strong>
+
       </div>
-    </header>
+
+    </nav>
+      <div class="container">
 
     {% block content %}
     {% endblock %}
 
+  </div>
   </body>
 </html>

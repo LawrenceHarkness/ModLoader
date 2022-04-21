@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      <title>  Version {{Version}}</title>
+  </head>
+  <body>
+
+
+  {% extends "template.html" %}
+    {% block content %}
+      <div class="container">
+    <h1 class="bg-info"> About {{Version}} </h1>
+    <form action="/activate?version={{Version}}" method="post" id="activateform">
+</form>
+
+<button  class="btn btn-default" type="submit" form="activateform" value="Submit">Activate</button>
+    <ul class="collection with-header">
+
+            {#    loop through galaxies and render them in list#}
+            {% for Mod in Mods %}
+                <li class="collection-item"><p>{{Mod}}{{ModsPlaceHolder[loop.index-1]}}</p></li>
+            {% endfor %}
+        </ul>
+
+    {% endblock %}
+  </div>
+  </body>
+</html>
